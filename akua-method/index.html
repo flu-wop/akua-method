@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akua Method | Luxury Perfume Oils Inspired by Ghanaian Heritage</title>
+    <meta name="description" content="Handcrafted luxury perfume oils blending African elegance with modern artistry. Vegan, cruelty-free, fully customizable.">
+    
+    <!-- Fonts: Playfair Display + Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-mark">A</span>
+                <span class="logo-text">AKUA METHOD</span>
+            </a>
+            
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+                <a href="sample-sets.html" class="nav-link">Sample Sets</a>
+                <a href="customization.html" class="nav-link">Customization</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="story.html" class="nav-link">Story</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            
+            <button class="nav-cart" id="cart-button" aria-label="Shopping cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 2L7 6H3L6 18h12l3-12h-4l-2-4z"/>
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="18" cy="21" r="1"/>
+                </svg>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" role="banner">
+        <div class="hero-bg">
+            <!-- Background image via CSS -->
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-pattern"></div>
+            <h1 class="hero-title">
+                <span class="hero-subtitle">Luxury Perfume Oils</span>
+                <span class="hero-main">Inspired by Ghanaian Heritage</span>
+            </h1>
+            <p class="hero-description">
+                Handcrafted scent alchemy blending African elegance with modern artistry. 
+                Vegan. Cruelty-free. Uniquely yours.
+            </p>
+            <div class="hero-cta">
+                <a href="shop.html" class="btn btn-primary">Shop Now</a>
+                <a href="experiences.html" class="btn btn-secondary">Take Scent Quiz</a>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Explore</span>
+            <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+                <path d="M1 1L6 6L11 1M1 14L6 19L11 14" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Featured Collections -->
+    <section class="collections">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Explore Our Collections</h2>
+                <p class="section-subtitle">15 handcrafted scents, each a journey</p>
+            </div>
+            
+            <div class="collections-grid">
+                <article class="collection-card" data-category="feminine">
+                    <div class="collection-image">
+                        <img src="assets/images/collection-feminine.jpg" alt="Feminine collection featuring floral and sweet scents" loading="lazy">
+                        <div class="collection-overlay">
+                            <span class="collection-count">12 Scents</span>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-name">Feminine</h3>
+                        <p class="collection-description">Floral elegance, sweet allure, sensual warmth</p>
+                        <a href="shop.html?filter=feminine" class="collection-link">
+                            Explore Collection
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M1 8h14M9 1l6 7-6 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="collection-card" data-category="masculine">
+                    <div class="collection-image">
+                        <img src="assets/images/collection-masculine.jpg" alt="Masculine collection with bold woody scents" loading="lazy">
+                        <div class="collection-overlay">
+                            <span class="collection-count">2 Scents</span>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-name">Masculine</h3>
+                        <p class="collection-description">Bold, woody, confident presence</p>
+                        <a href="shop.html?filter=masculine" class="collection-link">
+                            Explore Collection
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M1 8h14M9 1l6 7-6 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+
+                <article class="collection-card" data-category="unisex">
+                    <div class="collection-image">
+                        <img src="assets/images/collection-unisex.jpg" alt="Unisex fragrance balanced and versatile" loading="lazy">
+                        <div class="collection-overlay">
+                            <span class="collection-count">1 Scent</span>
+                        </div>
+                    </div>
+                    <div class="collection-content">
+                        <h3 class="collection-name">Unisex</h3>
+                        <p class="collection-description">Balanced, mysterious, universally captivating</p>
+                        <a href="shop.html?filter=unisex" class="collection-link">
+                            Explore Collection
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                <path d="M1 8h14M9 1l6 7-6 7" stroke="currentColor" stroke-width="1.5"/>
+                            </svg>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Akua Method -->
+    <section class="values">
+        <div class="container">
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 5C11.716 5 5 11.716 5 20s6.716 15 15 15 15-6.716 15-15S28.284 5 20 5zm0 26c-6.075 0-11-4.925-11-11s4.925-11 11-11 11 4.925 11 11-4.925 11-11 11z" fill="currentColor"/>
+                            <path d="M20 12c-1.104 0-2 .896-2 2v6c0 1.104.896 2 2 2s2-.896 2-2v-6c0-1.104-.896-2-2-2zM20 24c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Vegan & Cruelty-Free</h3>
+                    <p class="value-description">Pure plant-based ingredients, never tested on animals. Beauty with compassion.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2L6 10v10c0 8.837 6.044 17.116 14 19 7.956-1.884 14-10.163 14-19V10L20 2zm0 6.236L30 12.83v7.17c0 6.885-4.652 13.316-10 15.07-5.348-1.754-10-8.185-10-15.07v-7.17l10-4.594z" fill="currentColor"/>
+                            <circle cx="20" cy="20" r="5" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Handcrafted</h3>
+                    <p class="value-description">Each bottle personally blended by our scent alchemist. No mass production, only artistry.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="8" y="8" width="24" height="24" rx="2" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M16 8V4M24 8V4M8 16h24M14 22h4M22 22h4M14 28h4" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Fully Customizable</h3>
+                    <p class="value-description">Choose your bottle and cap colors. Make it uniquely yours.</p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 2C10.059 2 2 10.059 2 20s8.059 18 18 18 18-8.059 18-18S29.941 2 20 2zm8 22l-8-6-8 6V8h16v16z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3 class="value-title">Ghanaian Heritage</h3>
+                    <p class="value-description">Rooted in African elegance, celebrating culture through scent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Highlight -->
+    <section class="experiences-preview">
+        <div class="container">
+            <div class="experiences-split">
+                <div class="experiences-content">
+                    <span class="experiences-label">Discover Your Signature</span>
+                    <h2 class="experiences-title">Personalized Scent Journey</h2>
+                    <p class="experiences-text">
+                        Book a 1-on-1 consultation with our scent alchemist. Explore your preferences, 
+                        receive 9 curated 2ml samples, and discover scents that tell your story.
+                    </p>
+                    <ul class="experiences-features">
+                        <li>30-45 minute online session</li>
+                        <li>Personalized scent profile</li>
+                        <li>9 x 2ml samples shipped to you</li>
+                        <li>Expert guidance on layering & application</li>
+                    </ul>
+                    <div class="experiences-pricing">
+                        <span class="experiences-price">$30</span>
+                        <span class="experiences-duration">per consultation</span>
+                    </div>
+                    <a href="experiences.html" class="btn btn-primary">Book Your Session</a>
+                </div>
+                <div class="experiences-visual">
+                    <img src="assets/images/consultation.jpg" alt="Scent consultation session showing perfume samples" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof / Instagram -->
+    <section class="social">
+        <div class="container">
+            <h2 class="social-title">Join Our Community</h2>
+            <p class="social-subtitle">Follow <a href="https://instagram.com/akuamethod" target="_blank" rel="noopener">@akuamethod</a> for scent inspiration</p>
+            <div class="social-grid">
+                <!-- Placeholder for Instagram feed integration -->
+                <div class="social-item">
+                    <img src="assets/images/social-1.jpg" alt="Customer wearing Akua Method perfume" loading="lazy">
+                </div>
+                <div class="social-item">
+                    <img src="assets/images/social-2.jpg" alt="Close-up of customized perfume bottle" loading="lazy">
+                </div>
+                <div class="social-item">
+                    <img src="assets/images/social-3.jpg" alt="Pop-up event in New Orleans" loading="lazy">
+                </div>
+                <div class="social-item">
+                    <img src="assets/images/social-4.jpg" alt="Scent-making workshop group photo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-mark">A</span>
+                        <span class="logo-text">AKUA METHOD</span>
+                    </a>
+                    <p class="footer-tagline">Luxury perfume oils inspired by Ghanaian heritage</p>
+                    <div class="footer-social">
+                        <a href="https://instagram.com/akuamethod" target="_blank" rel="noopener" aria-label="Instagram">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            </svg>
+                        </a>
+                        <a href="https://facebook.com/akuamethod" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="https://tiktok.com/@akuamethod" target="_blank" rel="noopener" aria-label="TikTok">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul>
+                        <li><a href="shop.html?filter=feminine">Feminine</a></li>
+                        <li><a href="shop.html?filter=masculine">Masculine</a></li>
+                        <li><a href="shop.html?filter=unisex">Unisex</a></li>
+                        <li><a href="sample-sets.html">Sample Sets</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Experience</h4>
+                    <ul>
+                        <li><a href="experiences.html">Scent Consultation</a></li>
+                        <li><a href="experiences.html#workshops">Workshops</a></li>
+                        <li><a href="customization.html">Customize</a></li>
+                        <li><a href="events.html">Events & Pop-ups</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">About</h4>
+                    <ul>
+                        <li><a href="story.html">Our Story</a></li>
+                        <li><a href="story.html#founder">Meet the Founder</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="events.html">Locations</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                        <li><a href="product-info.html">Product Information</a></li>
+                        <li><a href="allergen-list.html">Allergen List</a></li>
+                        <li><a href="complaints.html">Reviews & Complaints</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Akua Method. All rights reserved.</p>
+                <p>Handcrafted with love. Vegan. Cruelty-free. Paraben-free.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar (Hidden by default) -->
+    <aside class="cart-sidebar" id="cart-sidebar" aria-hidden="true">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="cart-close" id="cart-close" aria-label="Close cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items populated via JS -->
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <p class="cart-note">Shipping & handling calculated at checkout</p>
+            <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+        </div>
+    </aside>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+</body>
+</html>

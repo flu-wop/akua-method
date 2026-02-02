@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scent Experiences & Consultations | Akua Method</title>
+    <meta name="description" content="Book a personalized scent consultation or join our scent-making workshops. Discover your signature fragrance.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/experiences.css">
+</head>
+<body>
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-mark">A</span>
+                <span class="logo-text">AKUA METHOD</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="experiences.html" class="nav-link active">Experiences</a>
+                <a href="sample-sets.html" class="nav-link">Sample Sets</a>
+                <a href="customization.html" class="nav-link">Customization</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="story.html" class="nav-link">Story</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-cart" id="cart-button" aria-label="Shopping cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 2L7 6H3L6 18h12l3-12h-4l-2-4z"/><circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/>
+                </svg>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="exp-hero">
+        <div class="container">
+            <h1>Discover Your Signature Scent</h1>
+            <p>Personalized consultations and hands-on workshops to explore the art of perfumery</p>
+        </div>
+    </section>
+
+    <section class="exp-main">
+        <div class="container">
+            <div class="exp-grid">
+                <!-- 1-on-1 Consultation -->
+                <article class="exp-card featured">
+                    <div class="exp-badge">Most Popular</div>
+                    <h2>1-on-1 Scent Consultation</h2>
+                    <div class="exp-price">
+                        <span class="price-amount">$30</span>
+                        <span class="price-duration">30-45 minutes</span>
+                    </div>
+                    <div class="exp-description">
+                        <p>Work directly with our scent alchemist to discover fragrances that resonate with your unique style, personality, and preferences.</p>
+                    </div>
+                    <div class="exp-includes">
+                        <h3>What's Included:</h3>
+                        <ul>
+                            <li>30-45 minute personalized online session</li>
+                            <li>In-depth scent profile questionnaire</li>
+                            <li>Expert guidance on notes, families, and layering</li>
+                            <li>9 x 2ml sample vials shipped to your door</li>
+                            <li>Customized scent recommendations</li>
+                        </ul>
+                    </div>
+                    <div class="exp-booking">
+                        <!-- Placeholder for Calendly embed -->
+                        <div id="calendly-consultation" class="calendly-placeholder">
+                            <p>Calendar booking widget will appear here</p>
+                            <a href="https://calendly.com/akuamethod" target="_blank" class="btn btn-primary">Book Your Consultation</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Scent-Making Workshops -->
+                <article class="exp-card" id="workshops">
+                    <h2>Scent-Making Workshops</h2>
+                    <div class="exp-description">
+                        <p>Immerse yourself in the art of perfumery. Learn to blend, layer, and create your own unique fragrance in our hands-on workshops.</p>
+                    </div>
+                    <div class="workshop-types">
+                        <div class="workshop-item">
+                            <h3>Girl's Day Out</h3>
+                            <p>Perfect for birthdays, bachelorettes, or just because. Gather your friends for a fun, fragrant experience.</p>
+                            <span class="workshop-duration">2 hours · Groups of 4-8</span>
+                        </div>
+                        <div class="workshop-item">
+                            <h3>Mom + Daughter Experience</h3>
+                            <p>Bond over scent. Create matching or complementary fragrances together.</p>
+                            <span class="workshop-duration">90 minutes · Pairs</span>
+                        </div>
+                        <div class="workshop-item">
+                            <h3>Team Building</h3>
+                            <p>Elevate your corporate event with a creative, sensory team-building experience.</p>
+                            <span class="workshop-duration">2-3 hours · Groups of 10-20</span>
+                        </div>
+                        <div class="workshop-item">
+                            <h3>Private Workshops</h3>
+                            <p>Customize a workshop for your group. Perfect for special occasions.</p>
+                            <span class="workshop-duration">Flexible · Custom groups</span>
+                        </div>
+                    </div>
+                    <div class="exp-cta">
+                        <a href="contact.html?subject=workshop" class="btn btn-secondary">Inquire About Workshops</a>
+                    </div>
+                </article>
+
+                <!-- Gift an Experience -->
+                <article class="exp-card">
+                    <h2>Gift an Experience</h2>
+                    <div class="exp-description">
+                        <p>Give the gift of scent discovery. Perfect for birthdays, holidays, or any special occasion.</p>
+                    </div>
+                    <div class="gift-options">
+                        <div class="gift-item">
+                            <h3>Consultation Gift Card</h3>
+                            <p class="gift-price">$30</p>
+                            <p>Includes 1-on-1 session + 9 samples</p>
+                        </div>
+                        <div class="gift-item">
+                            <h3>Workshop Gift Card</h3>
+                            <p class="gift-price">Starting at $75</p>
+                            <p>Choose from our workshop experiences</p>
+                        </div>
+                    </div>
+                    <div class="exp-cta">
+                        <a href="contact.html?subject=gift-card" class="btn btn-primary">Purchase Gift Card</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <span class="logo-mark">A</span><span class="logo-text">AKUA METHOD</span>
+                    </a>
+                    <p class="footer-tagline">Luxury perfume oils inspired by Ghanaian heritage</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-heading">Support</h4>
+                    <ul>
+                        <li><a href="terms.html">Terms & Conditions</a></li>
+                        <li><a href="refund-policy.html">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Akua Method. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <aside class="cart-sidebar" id="cart-sidebar" aria-hidden="true">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="cart-close" id="cart-close" aria-label="Close cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Subtotal:</span><span id="cart-total">$0.00</span></div>
+            <p class="cart-note">Shipping & handling calculated at checkout</p>
+            <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+        </div>
+    </aside>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
