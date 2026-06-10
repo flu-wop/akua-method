@@ -10,7 +10,7 @@ const PRODUCTS = [
         id: 'unwrapped',
         name: 'Unwrapped',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'A delicate unveiling of soft florals and warm vanilla, like unwrapping a cherished gift.',
         notes: {
             top: ['Bergamot', 'Pink Pepper'],
@@ -23,7 +23,7 @@ const PRODUCTS = [
         id: 'velvetine',
         name: 'Velvetine',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Luxuriously smooth and sensual, a velvety embrace of rich amber and soft petals.',
         notes: {
             top: ['Mandarin', 'Saffron'],
@@ -36,7 +36,7 @@ const PRODUCTS = [
         id: 'sensual-surrender',
         name: 'Sensual Surrender',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Intoxicating warmth meets floral seduction. Let go and surrender to pure sensuality.',
         notes: {
             top: ['Black Currant', 'Pear'],
@@ -49,7 +49,7 @@ const PRODUCTS = [
         id: 'eternal-city',
         name: 'Eternal City',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Timeless elegance inspired by ancient streets and modern romance.',
         notes: {
             top: ['Italian Bergamot', 'Neroli'],
@@ -62,7 +62,7 @@ const PRODUCTS = [
         id: 'desert-dreams',
         name: 'Desert Dreams',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Sun-warmed sands and exotic blooms under endless skies.',
         notes: {
             top: ['Date', 'Apricot'],
@@ -75,7 +75,7 @@ const PRODUCTS = [
         id: 'midnight-purr',
         name: 'Midnight Purr',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Mysterious and alluring, a seductive whisper in the darkness.',
         notes: {
             top: ['Black Cherry', 'Plum'],
@@ -88,7 +88,7 @@ const PRODUCTS = [
         id: 'follow-me',
         name: 'Follow Me',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'An irresistible trail that captivates and beckons.',
         notes: {
             top: ['Raspberry', 'Lychee'],
@@ -101,7 +101,7 @@ const PRODUCTS = [
         id: 'midnight-mango',
         name: 'Midnight Mango',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Tropical sweetness meets dark sophistication in this after-hours indulgence.',
         notes: {
             top: ['Mango', 'Passionfruit'],
@@ -114,7 +114,7 @@ const PRODUCTS = [
         id: 'golden-nectar',
         name: 'Golden Nectar',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Sweet as honey, rich as gold. A luminous celebration of abundance.',
         notes: {
             top: ['Honey', 'Mandarin'],
@@ -127,7 +127,7 @@ const PRODUCTS = [
         id: 'golden-hour',
         name: 'Golden Hour',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'That perfect moment when light turns to gold. Warm, radiant, unforgettable.',
         notes: {
             top: ['Bergamot', 'Peach'],
@@ -140,7 +140,7 @@ const PRODUCTS = [
         id: 'sensual-shore',
         name: 'Sensual Shore',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Where ocean breezes meet sun-kissed skin. A beachside escape.',
         notes: {
             top: ['Sea Salt', 'Bergamot'],
@@ -153,7 +153,7 @@ const PRODUCTS = [
         id: 'candy-coast',
         name: 'Candy Coast',
         category: 'feminine',
-        price: 15.00,
+        price: 18.00,
         description: 'Playful sweetness with a sophisticated twist. Beachside confection.',
         notes: {
             top: ['Cotton Candy', 'Citrus Zest'],
@@ -168,7 +168,7 @@ const PRODUCTS = [
         id: 'rude-boy-blend',
         name: 'Rude Boy Blend',
         category: 'masculine',
-        price: 15.00,
+        price: 18.00,
         description: 'Bold, confident, unapologetic. A commanding presence.',
         notes: {
             top: ['Black Pepper', 'Ginger'],
@@ -181,7 +181,7 @@ const PRODUCTS = [
         id: 'baddest-man',
         name: 'The Baddest Man',
         category: 'masculine',
-        price: 15.00,
+        price: 18.00,
         description: 'Powerful, magnetic, unforgettable. Own the room.',
         notes: {
             top: ['Bergamot', 'Cardamom'],
@@ -196,7 +196,7 @@ const PRODUCTS = [
         id: 'forbidden-streets',
         name: 'Forbidden Streets',
         category: 'unisex',
-        price: 15.00,
+        price: 18.00,
         description: 'Mysterious alleyways where secrets linger. Balanced, enigmatic, universally captivating.',
         notes: {
             top: ['Pink Pepper', 'Cardamom'],
