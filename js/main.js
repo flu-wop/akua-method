@@ -372,3 +372,23 @@ window.AkuaMethod = {
     formatPrice,
     generateId
 };
+
+// ===== Scroll Reveal (ecosystem-style) =====
+function initializeScrollReveal() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .fade-in, .collection-card, .value-item').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+    });
+}
+
+// Re-init on DOM ready (safe to call multiple times)
+document.addEventListener('DOMContentLoaded', initializeScrollReveal);
