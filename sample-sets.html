@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Sets | Akua Method</title>
+    <meta name="description" content="Try before you commit. Explore Akua Method's curated sample sets — 2ml roller vials of our handcrafted perfume oils.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            color: var(--color-white);
+            padding: 8rem var(--spacing-md) 4rem;
+            margin-top: 72px;
+            text-align: center;
+        }
+        .page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: var(--spacing-sm); }
+        .page-hero p { font-size: 1.125rem; opacity: 0.9; font-weight: 300; max-width: 600px; margin: 0 auto; }
+
+        .sets-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--color-white);
+        }
+        .sets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        .set-card {
+            background: var(--color-cream);
+            border-radius: 4px;
+            overflow: hidden;
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+        .set-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .set-card-image {
+            height: 220px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .set-card-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 40%, rgba(255,255,255,0.08) 0%, transparent 70%);
+        }
+        .set-vials {
+            display: flex;
+            gap: 6px;
+            align-items: flex-end;
+        }
+        .vial {
+            width: 18px;
+            border-radius: 3px 3px 8px 8px;
+            background: rgba(255,255,255,0.25);
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+        .set-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--color-accent);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2px;
+        }
+        .set-card-body { padding: var(--spacing-md); }
+        .set-card-title { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .set-card-desc { font-size: 0.9375rem; color: var(--color-secondary); margin-bottom: var(--spacing-sm); line-height: 1.6; }
+        .set-includes { list-style: none; margin-bottom: var(--spacing-md); }
+        .set-includes li { font-size: 0.875rem; padding: 0.25rem 0; display: flex; align-items: center; gap: 0.5rem; }
+        .set-includes li::before { content: '—'; color: var(--color-accent); font-weight: 600; }
+        .set-card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: var(--spacing-sm); border-top: 1px solid rgba(62,39,35,0.1); }
+        .set-price { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-accent); }
+        .set-price span { font-size: 0.875rem; font-family: var(--font-body); color: var(--color-secondary); }
+
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; transition: all var(--transition-base); cursor: pointer; border: none; }
+        .btn-primary { background: var(--color-accent); color: white; }
+        .btn-primary:hover { background: var(--color-secondary); }
+        .btn-outline { background: transparent; border: 1.5px solid var(--color-primary); color: var(--color-primary); }
+        .btn-outline:hover { background: var(--color-primary); color: white; }
+
+        .how-it-works {
+            background: var(--color-cream);
+            padding: var(--spacing-xl) 0;
+        }
+        .steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+        .step { text-align: center; }
+        .step-num { width: 48px; height: 48px; border-radius: 50%; background: var(--color-accent); color: white; font-family: var(--font-display); font-size: 1.25rem; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-sm); }
+        .step h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+        .step p { font-size: 0.875rem; color: var(--color-secondary); }
+
+        .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.75rem; }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-mark">A</span>
+                <span class="logo-text">AKUA METHOD</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+                <a href="sample-sets.html" class="nav-link active">Sample Sets</a>
+                <a href="customization.html" class="nav-link">Customization</a>
+                <a href="events.html" class="nav-link">Events</a>
+                <a href="story.html" class="nav-link">Story</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-cart" id="cart-button" aria-label="Shopping cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 2L7 6H3L6 18h12l3-12h-4l-2-4z"/>
+                    <circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/>
+                </svg>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <p class="section-label">Try Before You Commit</p>
+            <h1>Sample Sets</h1>
+            <p>Explore our curated sample collections. Each set arrives as 2ml roller vials — the perfect way to discover your signature scent.</p>
+        </div>
+    </section>
+
+    <section class="sets-section">
+        <div class="container">
+            <div class="sets-grid">
+
+                <!-- Signature Sampler -->
+                <div class="set-card">
+                    <div class="set-card-image" style="background: linear-gradient(135deg,#3E2723,#6D3B2E);">
+                        <div class="set-vials">
+                            <div class="vial" style="height:60px;"></div>
+                            <div class="vial" style="height:75px;"></div>
+                            <div class="vial" style="height:65px;"></div>
+                            <div class="vial" style="height:80px;"></div>
+                            <div class="vial" style="height:70px;"></div>
+                        </div>
+                        <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;letter-spacing:3px;font-family:Georgia,serif;">5 VIALS</span>
+                    </div>
+                    <div class="set-card-body">
+                        <h3 class="set-card-title">Signature Sampler</h3>
+                        <p class="set-card-desc">Our bestsellers across all categories — the perfect introduction to the Akua Method world.</p>
+                        <ul class="set-includes">
+                            <li>5 × 2ml roller vials</li>
+                            <li>Scent description cards</li>
+                            <li>Layering guide</li>
+                            <li>$5 credit toward full-size purchase</li>
+                        </ul>
+                        <div class="set-card-footer">
+                            <div class="set-price">$18 <span>/ set</span></div>
+                            <!-- STRIPE PAYMENT LINK — replace href with your Stripe Payment Link URL -->
+                            <a href="checkout.html?set=signature-sampler&price=18" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feminine Discovery -->
+                <div class="set-card">
+                    <div class="set-card-image" style="background: linear-gradient(135deg,#6B3A5A,#3E1E36);">
+                        <div class="set-vials">
+                            <div class="vial" style="height:55px;"></div>
+                            <div class="vial" style="height:70px;"></div>
+                            <div class="vial" style="height:60px;"></div>
+                            <div class="vial" style="height:75px;"></div>
+                            <div class="vial" style="height:65px;"></div>
+                            <div class="vial" style="height:80px;"></div>
+                        </div>
+                        <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;letter-spacing:3px;font-family:Georgia,serif;">6 VIALS</span>
+                        <span class="set-badge">Most Popular</span>
+                    </div>
+                    <div class="set-card-body">
+                        <h3 class="set-card-title">Feminine Discovery</h3>
+                        <p class="set-card-desc">Six hand-selected scents from our 12-piece feminine collection. Florals, gourmands, and sensual warmth.</p>
+                        <ul class="set-includes">
+                            <li>6 × 2ml roller vials</li>
+                            <li>Scent description cards</li>
+                            <li>Fragrance family guide</li>
+                            <li>$5 credit toward full-size purchase</li>
+                        </ul>
+                        <div class="set-card-footer">
+                            <div class="set-price">$22 <span>/ set</span></div>
+                            <a href="checkout.html?set=feminine-discovery&price=22" class="btn btn-primary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The Full Experience -->
+                <div class="set-card">
+                    <div class="set-card-image" style="background: linear-gradient(135deg,#1A1A28,#3A3040);">
+                        <div class="set-vials">
+                            <div class="vial" style="height:50px;"></div>
+                            <div class="vial" style="height:62px;"></div>
+                            <div class="vial" style="height:72px;"></div>
+                            <div class="vial" style="height:80px;"></div>
+                            <div class="vial" style="height:72px;"></div>
+                            <div class="vial" style="height:62px;"></div>
+                            <div class="vial" style="height:55px;"></div>
+                            <div class="vial" style="height:68px;"></div>
+                            <div class="vial" style="height:75px;"></div>
+                        </div>
+                        <span style="color:rgba(255,255,255,0.7);font-size:0.8rem;letter-spacing:3px;font-family:Georgia,serif;">9 VIALS</span>
+                        <span class="set-badge" style="background:var(--color-secondary);">Best Value</span>
+                    </div>
+                    <div class="set-card-body">
+                        <h3 class="set-card-title">The Full Experience</h3>
+                        <p class="set-card-desc">The complete consultation package — 9 curated samples matched to your preferences after our scent quiz.</p>
+                        <ul class="set-includes">
+                            <li>9 × 2ml roller vials (curated to you)</li>
+                            <li>Personalized scent profile card</li>
+                            <li>Layering & application guide</li>
+                            <li>$10 credit toward full-size purchase</li>
+                        </ul>
+                        <div class="set-card-footer">
+                            <div class="set-price">$30 <span>/ set</span></div>
+                            <a href="experiences.html" class="btn btn-primary">Book Consultation</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <p class="section-label" style="text-align:center;">How It Works</p>
+            <h2 style="text-align:center;font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.5rem);">From Sample to Signature</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h4>Choose Your Set</h4>
+                    <p>Pick a sampler based on your mood — or book a consultation for a fully personalized selection.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h4>We Ship to You</h4>
+                    <p>Your 2ml roller vials arrive carefully packaged within 3–5 business days.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h4>Wear & Explore</h4>
+                    <p>Test each scent on your skin. Fragrance reads differently on everyone — take your time.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div>
+                    <h4>Go Full-Size</h4>
+                    <p>Found your signature? Apply your sample credit and order your customized 1/3 oz roller bottle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <aside class="cart-sidebar" id="cart-sidebar" aria-hidden="true">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="cart-close" id="cart-close" aria-label="Close cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Subtotal:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <p class="cart-note">Shipping & handling calculated at checkout</p>
+            <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+        </div>
+    </aside>
+
+    <!-- Footer -->
+    <footer style="background:var(--color-primary);color:var(--color-cream);padding:var(--spacing-lg) 0 var(--spacing-md);">
+        <div class="container" style="text-align:center;">
+            <a href="index.html" style="font-family:var(--font-display);font-size:1.25rem;letter-spacing:3px;color:var(--color-cream);">AKUA METHOD</a>
+            <p style="margin-top:1rem;font-size:0.875rem;opacity:0.6;">© 2026 Akua Method. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

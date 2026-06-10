@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="500" viewBox="0 0 600 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2C3E5A"/>
+      <stop offset="100%" style="stop-color:#1A2840"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="500" fill="url(#bg)"/>
+  <rect x="0" y="0" width="600" height="500" fill="rgba(0,0,0,0.15)"/>
+  <circle cx="300" cy="195" r="70" fill="none" stroke="rgba(200,220,255,0.3)" stroke-width="1.5"/><line x1="245" y1="195" x2="355" y2="195" stroke="rgba(200,220,255,0.25)" stroke-width="1.5"/><circle cx="300" cy="195" r="30" fill="rgba(200,220,255,0.1)" stroke="rgba(200,220,255,0.3)" stroke-width="1.5"/>
+  <text x="300" y="400" text-anchor="middle" font-family="Georgia,serif" font-size="28" fill="#F5F1E8" letter-spacing="4" opacity="0.9">UNISEX</text>
+  <text x="300" y="435" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#B8941E" letter-spacing="6" opacity="0.8">AKUA METHOD</text>
+</svg>

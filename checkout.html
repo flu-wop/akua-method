@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Akua Method</title>
+    <meta name="description" content="Complete your Akua Method order. Secure checkout powered by Stripe.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .checkout-page { min-height: 100vh; background: var(--color-cream); padding-top: 72px; }
+        .checkout-header { background: var(--color-primary); color: var(--color-cream); padding: 2rem var(--spacing-md); text-align: center; }
+        .checkout-header h1 { font-family: var(--font-display); font-size: 1.75rem; letter-spacing: 2px; }
+        .checkout-header p { font-size: 0.875rem; opacity: 0.7; margin-top: 0.25rem; }
+
+        .checkout-layout { display: grid; grid-template-columns: 1fr 400px; gap: var(--spacing-lg); max-width: 1000px; margin: var(--spacing-lg) auto; padding: 0 var(--spacing-md); align-items: start; }
+        @media (max-width: 768px) { .checkout-layout { grid-template-columns: 1fr; } }
+
+        .checkout-section { background: white; border-radius: 4px; padding: var(--spacing-md); margin-bottom: var(--spacing-md); }
+        .checkout-section h2 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: var(--spacing-sm); padding-bottom: var(--spacing-sm); border-bottom: 1px solid rgba(62,39,35,0.1); }
+
+        /* Order Summary */
+        .order-summary { background: white; border-radius: 4px; padding: var(--spacing-md); position: sticky; top: 90px; }
+        .order-summary h2 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: var(--spacing-sm); padding-bottom: var(--spacing-sm); border-bottom: 1px solid rgba(62,39,35,0.1); }
+        .order-items { margin-bottom: var(--spacing-sm); }
+        .order-item { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 0; border-bottom: 1px solid rgba(62,39,35,0.06); font-size: 0.9375rem; }
+        .order-item-name { flex: 1; }
+        .order-item-qty { color: var(--color-secondary); font-size: 0.875rem; margin-right: 0.75rem; }
+        .order-totals { margin-top: var(--spacing-sm); }
+        .order-row { display: flex; justify-content: space-between; font-size: 0.9375rem; margin-bottom: 0.5rem; }
+        .order-row.total { font-weight: 600; font-size: 1.125rem; padding-top: 0.75rem; border-top: 1.5px solid var(--color-primary); margin-top: 0.75rem; }
+
+        /* Stripe button */
+        .stripe-checkout-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 1rem;
+            background: #635BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            text-decoration: none;
+            margin-top: var(--spacing-sm);
+        }
+        .stripe-checkout-btn:hover { background: #4F46E5; }
+        .stripe-checkout-btn svg { flex-shrink: 0; }
+
+        .secure-badge { display: flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.75rem; color: var(--color-secondary); margin-top: 0.75rem; }
+
+        /* Placeholder notice */
+        .dev-notice {
+            background: #FFF8E1;
+            border: 1px dashed #F9A825;
+            border-radius: 4px;
+            padding: var(--spacing-sm) var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+            font-size: 0.875rem;
+        }
+        .dev-notice strong { color: #E65100; }
+        .dev-notice code { background: rgba(0,0,0,0.06); padding: 0.1rem 0.3rem; border-radius: 2px; font-family: monospace; }
+
+        /* Form fields */
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-sm); }
+        @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+        .form-group { margin-bottom: var(--spacing-sm); }
+        .form-group label { display: block; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.4rem; color: var(--color-secondary); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid rgba(62,39,35,0.2);
+            border-radius: 2px;
+            font-family: var(--font-body);
+            font-size: 0.9375rem;
+            background: var(--color-cream);
+            color: var(--color-primary);
+            transition: border-color 0.2s;
+        }
+        .form-group input:focus, .form-group select:focus { outline: none; border-color: var(--color-accent); }
+
+        .empty-cart-msg { text-align: center; padding: var(--spacing-lg) 0; }
+        .empty-cart-msg h2 { font-family: var(--font-display); font-size: 1.75rem; margin-bottom: 1rem; }
+        .empty-cart-msg p { color: var(--color-secondary); margin-bottom: var(--spacing-md); }
+
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 2rem; font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; transition: all var(--transition-base); cursor: pointer; border: none; text-decoration: none; }
+        .btn-primary { background: var(--color-accent); color: white; }
+        .btn-primary:hover { background: var(--color-secondary); }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-mark">A</span>
+                <span class="logo-text">AKUA METHOD</span>
+            </a>
+            <div style="display:flex;align-items:center;gap:0.5rem;font-size:0.875rem;color:var(--color-secondary);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Secure Checkout
+            </div>
+        </div>
+    </nav>
+
+    <div class="checkout-page">
+        <div class="checkout-header">
+            <h1>Checkout</h1>
+            <p>Secure payment powered by Stripe</p>
+        </div>
+
+        <div class="checkout-layout" id="checkout-content">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <footer style="background:var(--color-primary);color:var(--color-cream);padding:var(--spacing-md) 0;text-align:center;margin-top:var(--spacing-xl);">
+        <div class="container">
+            <p style="font-size:0.8125rem;opacity:0.6;">© 2026 Akua Method · Payments secured by Stripe · Vegan & Cruelty-Free</p>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================================
+        // STRIPE PAYMENT LINKS — REPLACE THESE URLS
+        // ============================================================
+        // 1. Go to dashboard.stripe.com → Payment Links → Create
+        // 2. Add each product with its price
+        // 3. Paste the generated URL in place of the placeholder below
+        //
+        // For a "cart checkout" flow, create ONE Payment Link for each
+        // product, OR use a single dynamic Stripe Checkout Session
+        // (requires a server/serverless function).
+        //
+        // SIMPLEST OPTION: One Payment Link per product.
+        // These links work on any page, including Squarespace.
+        // ============================================================
+
+        const STRIPE_PAYMENT_LINKS = {
+            // Product Payment Links (replace each value)
+            'unwrapped':         'https://buy.stripe.com/PLACEHOLDER_UNWRAPPED',
+            'velvetine':         'https://buy.stripe.com/PLACEHOLDER_VELVETINE',
+            'sensual-surrender': 'https://buy.stripe.com/PLACEHOLDER_SENSUAL_SURRENDER',
+            'eternal-city':      'https://buy.stripe.com/PLACEHOLDER_ETERNAL_CITY',
+            'desert-dreams':     'https://buy.stripe.com/PLACEHOLDER_DESERT_DREAMS',
+            'midnight-purr':     'https://buy.stripe.com/PLACEHOLDER_MIDNIGHT_PURR',
+            'follow-me':         'https://buy.stripe.com/PLACEHOLDER_FOLLOW_ME',
+            'midnight-mango':    'https://buy.stripe.com/PLACEHOLDER_MIDNIGHT_MANGO',
+            'golden-nectar':     'https://buy.stripe.com/PLACEHOLDER_GOLDEN_NECTAR',
+            'golden-hour':       'https://buy.stripe.com/PLACEHOLDER_GOLDEN_HOUR',
+            'sensual-shore':     'https://buy.stripe.com/PLACEHOLDER_SENSUAL_SHORE',
+            'candy-coast':       'https://buy.stripe.com/PLACEHOLDER_CANDY_COAST',
+            'rude-boy-blend':    'https://buy.stripe.com/PLACEHOLDER_RUDE_BOY',
+            'baddest-man':       'https://buy.stripe.com/PLACEHOLDER_BADDEST_MAN',
+            'forbidden-streets': 'https://buy.stripe.com/PLACEHOLDER_FORBIDDEN_STREETS',
+            // Sample Sets
+            'signature-sampler': 'https://buy.stripe.com/PLACEHOLDER_SIGNATURE_SAMPLER',
+            'feminine-discovery':'https://buy.stripe.com/PLACEHOLDER_FEMININE_DISCOVERY',
+            // Consultation
+            'consultation':      'https://buy.stripe.com/PLACEHOLDER_CONSULTATION',
+        };
+
+        // Read cart from localStorage (set by main.js)
+        function getCart() {
+            try { return JSON.parse(localStorage.getItem('akuaCart') || '[]'); } catch { return []; }
+        }
+
+        const cart = getCart();
+        const container = document.getElementById('checkout-content');
+
+        if (cart.length === 0) {
+            container.innerHTML = `
+                <div class="empty-cart-msg" style="grid-column:1/-1;">
+                    <h2>Your cart is empty</h2>
+                    <p>Add some scents before heading to checkout.</p>
+                    <a href="shop.html" class="btn btn-primary">Browse Scents</a>
+                </div>`;
+        } else {
+            const subtotal = cart.reduce((s, i) => s + i.price * i.quantity, 0);
+            const shipping = subtotal >= 50 ? 0 : 5.99;
+            const total = subtotal + shipping;
+
+            // For multi-item carts, we send them to the first item's Payment Link
+            // (or you can create a "bundle" link). For now, we pick the first item.
+            const firstItemLink = STRIPE_PAYMENT_LINKS[cart[0].id] || '#';
+
+            container.innerHTML = `
+                <div>
+                    <!-- DEV NOTE — remove before launch -->
+                    <div class="dev-notice">
+                        <strong>⚠ Developer Note:</strong> Replace the <code>STRIPE_PAYMENT_LINKS</code> object in this file with real Stripe Payment Link URLs. See the Squarespace instructions at the bottom of this page for how to embed these on your old site.
+                    </div>
+
+                    <div class="checkout-section">
+                        <h2>Contact</h2>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" placeholder="your@email.com">
+                        </div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h2>Shipping Address</h2>
+                        <div class="form-row">
+                            <div class="form-group"><label>First Name</label><input type="text" placeholder="First"></div>
+                            <div class="form-group"><label>Last Name</label><input type="text" placeholder="Last"></div>
+                        </div>
+                        <div class="form-group"><label>Address</label><input type="text" placeholder="Street address"></div>
+                        <div class="form-row">
+                            <div class="form-group"><label>City</label><input type="text" placeholder="City"></div>
+                            <div class="form-group"><label>State</label><input type="text" placeholder="State"></div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group"><label>ZIP</label><input type="text" placeholder="ZIP code"></div>
+                            <div class="form-group"><label>Country</label>
+                                <select><option>United States</option><option>Canada</option><option>United Kingdom</option><option>Ghana</option><option>Other</option></select>
+                            </div>
+                        </div>
+                        <div class="form-group"><label>Order Notes (optional)</label><textarea rows="3" placeholder="Bottle/cap preferences, gift message, etc."></textarea></div>
+                    </div>
+
+                    <div class="checkout-section">
+                        <h2>Payment</h2>
+                        <p style="font-size:0.9375rem;color:var(--color-secondary);margin-bottom:var(--spacing-sm);">You'll be redirected to Stripe's secure payment page to complete your order. Your payment info is never stored on our site.</p>
+                        <a href="${firstItemLink}" class="stripe-checkout-btn" id="stripe-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48" fill="white">
+                                <path d="M44 12H4c-1.1 0-2 .9-2 2v20c0 1.1.9 2 2 2h40c1.1 0 2-.9 2-2V14c0-1.1-.9-2-2-2zm-1 21H5V15h38v18z"/>
+                                <rect x="8" y="22" width="8" height="3" rx="1.5" fill="white"/>
+                                <rect x="20" y="22" width="14" height="3" rx="1.5" fill="white"/>
+                            </svg>
+                            Pay $${total.toFixed(2)} with Stripe
+                        </a>
+                        <div class="secure-badge">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            Secured by Stripe · SSL Encrypted
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="order-summary">
+                        <h2>Order Summary</h2>
+                        <div class="order-items">
+                            ${cart.map(item => `
+                                <div class="order-item">
+                                    <span class="order-item-name">${item.name}</span>
+                                    <span class="order-item-qty">×${item.quantity}</span>
+                                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="order-totals">
+                            <div class="order-row"><span>Subtotal</span><span>$${subtotal.toFixed(2)}</span></div>
+                            <div class="order-row"><span>Shipping</span><span>${shipping === 0 ? 'Free' : '$' + shipping.toFixed(2)}</span></div>
+                            ${shipping === 0 ? '<div style="font-size:0.75rem;color:var(--color-accent);margin-bottom:0.5rem;">Free shipping on orders $50+</div>' : ''}
+                            <div class="order-row total"><span>Total</span><span>$${total.toFixed(2)}</span></div>
+                        </div>
+                        <a href="shop.html" style="display:block;text-align:center;font-size:0.8125rem;color:var(--color-secondary);margin-top:1rem;text-decoration:underline;">← Continue Shopping</a>
+                    </div>
+
+                    <!-- Squarespace Instructions (remove before launch or hide with display:none) -->
+                    <div style="background:var(--color-cream);border:1px solid rgba(62,39,35,0.15);border-radius:4px;padding:var(--spacing-md);margin-top:var(--spacing-md);">
+                        <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-accent);margin-bottom:0.75rem;">Squarespace Setup Guide</p>
+                        <p style="font-size:0.8125rem;color:var(--color-secondary);margin-bottom:0.75rem;">How to add Stripe Payment Links to your Squarespace site:</p>
+                        <ol style="font-size:0.8125rem;color:var(--color-secondary);padding-left:1.25rem;line-height:2;">
+                            <li>In Stripe Dashboard → <strong>Payment Links</strong> → <strong>New</strong></li>
+                            <li>Add your product (e.g. "Unwrapped – Perfume Oil") and set price to $15</li>
+                            <li>Copy the generated <code style="background:rgba(0,0,0,0.06);padding:0 3px;font-family:monospace;">buy.stripe.com/…</code> URL</li>
+                            <li>In Squarespace, add a <strong>Button Block</strong> to any page</li>
+                            <li>Set the button URL to your Stripe Payment Link</li>
+                            <li>Stripe handles the payment page, confirmation email, and receipts</li>
+                        </ol>
+                        <p style="font-size:0.75rem;color:var(--color-secondary);margin-top:0.75rem;opacity:0.8;">Tip: You can also embed a Stripe Payment Link directly in a Code Block using an <code style="font-family:monospace;">&lt;a&gt;</code> tag styled as a button.</p>
+                    </div>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

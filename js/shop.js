@@ -17,7 +17,7 @@ const PRODUCTS = [
             heart: ['Jasmine', 'Rose', 'Iris'],
             base: ['Vanilla', 'Sandalwood', 'Musk']
         },
-        image: 'assets/images/products/unwrapped.jpg'
+        image: 'assets/images/products/unwrapped.svg'
     },
     {
         id: 'velvetine',
@@ -30,7 +30,7 @@ const PRODUCTS = [
             heart: ['Turkish Rose', 'Violet'],
             base: ['Amber', 'Patchouli', 'Velvet Musk']
         },
-        image: 'assets/images/products/velvetine.jpg'
+        image: 'assets/images/products/velvetine.svg'
     },
     {
         id: 'sensual-surrender',
@@ -43,7 +43,7 @@ const PRODUCTS = [
             heart: ['Tuberose', 'Ylang-Ylang'],
             base: ['Tonka Bean', 'Vanilla', 'Benzoin']
         },
-        image: 'assets/images/products/sensual-surrender.jpg'
+        image: 'assets/images/products/sensual-surrender.svg'
     },
     {
         id: 'eternal-city',
@@ -56,7 +56,7 @@ const PRODUCTS = [
             heart: ['White Lily', 'Peony'],
             base: ['Cedarwood', 'Amber', 'White Musk']
         },
-        image: 'assets/images/products/eternal-city.jpg'
+        image: 'assets/images/products/eternal-city.svg'
     },
     {
         id: 'desert-dreams',
@@ -69,7 +69,7 @@ const PRODUCTS = [
             heart: ['Orange Blossom', 'Desert Rose'],
             base: ['Oud', 'Honey', 'Incense']
         },
-        image: 'assets/images/products/desert-dreams.jpg'
+        image: 'assets/images/products/desert-dreams.svg'
     },
     {
         id: 'midnight-purr',
@@ -82,7 +82,7 @@ const PRODUCTS = [
             heart: ['Night Jasmine', 'Black Orchid'],
             base: ['Dark Chocolate', 'Vanilla', 'Patchouli']
         },
-        image: 'assets/images/products/midnight-purr.jpg'
+        image: 'assets/images/products/midnight-purr.svg'
     },
     {
         id: 'follow-me',
@@ -95,7 +95,7 @@ const PRODUCTS = [
             heart: ['Peony', 'Freesia'],
             base: ['Cashmere Wood', 'Musk', 'Amber']
         },
-        image: 'assets/images/products/follow-me.jpg'
+        image: 'assets/images/products/follow-me.svg'
     },
     {
         id: 'midnight-mango',
@@ -108,7 +108,7 @@ const PRODUCTS = [
             heart: ['Coconut', 'Frangipani'],
             base: ['Vanilla', 'Tonka', 'Dark Musk']
         },
-        image: 'assets/images/products/midnight-mango.jpg'
+        image: 'assets/images/products/midnight-mango.svg'
     },
     {
         id: 'golden-nectar',
@@ -121,7 +121,7 @@ const PRODUCTS = [
             heart: ['Honeysuckle', 'Apricot'],
             base: ['Amber', 'Vanilla', 'Benzoin']
         },
-        image: 'assets/images/products/golden-nectar.jpg'
+        image: 'assets/images/products/golden-nectar.svg'
     },
     {
         id: 'golden-hour',
@@ -134,7 +134,7 @@ const PRODUCTS = [
             heart: ['Magnolia', 'Tuberose'],
             base: ['Sandalwood', 'Amber', 'Musk']
         },
-        image: 'assets/images/products/golden-hour.jpg'
+        image: 'assets/images/products/golden-hour.svg'
     },
     {
         id: 'sensual-shore',
@@ -147,7 +147,7 @@ const PRODUCTS = [
             heart: ['Tiare Flower', 'Coconut'],
             base: ['Driftwood', 'Amber', 'Vanilla']
         },
-        image: 'assets/images/products/sensual-shore.jpg'
+        image: 'assets/images/products/sensual-shore.svg'
     },
     {
         id: 'candy-coast',
@@ -160,7 +160,7 @@ const PRODUCTS = [
             heart: ['Coconut Cream', 'Vanilla Orchid'],
             base: ['Caramel', 'Sugar Musk', 'Driftwood']
         },
-        image: 'assets/images/products/candy-coast.jpg'
+        image: 'assets/images/products/candy-coast.svg'
     },
     
     // MASCULINE (2 scents)
@@ -175,7 +175,7 @@ const PRODUCTS = [
             heart: ['Leather', 'Tobacco'],
             base: ['Cedarwood', 'Vetiver', 'Patchouli']
         },
-        image: 'assets/images/products/rude-boy-blend.jpg'
+        image: 'assets/images/products/rude-boy-blend.svg'
     },
     {
         id: 'baddest-man',
@@ -188,7 +188,7 @@ const PRODUCTS = [
             heart: ['Oud', 'Smoky Incense'],
             base: ['Dark Leather', 'Amber', 'Musk']
         },
-        image: 'assets/images/products/baddest-man.jpg'
+        image: 'assets/images/products/baddest-man.svg'
     },
     
     // UNISEX (1 scent)
@@ -203,7 +203,7 @@ const PRODUCTS = [
             heart: ['Iris', 'Patchouli'],
             base: ['Vetiver', 'Amber', 'Tonka Bean']
         },
-        image: 'assets/images/products/forbidden-streets.jpg'
+        image: 'assets/images/products/forbidden-streets.svg'
     }
 ];
 

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Pop-Ups | Akua Method</title>
+    <meta name="description" content="Find Akua Method at pop-up markets, scent workshops, and events across New Orleans, Atlanta, New York, and beyond.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .page-hero {
+            background: linear-gradient(135deg, #2C4A2E 0%, var(--color-primary) 100%);
+            color: white;
+            padding: 8rem var(--spacing-md) 4rem;
+            margin-top: 72px;
+            text-align: center;
+        }
+        .page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
+        .page-hero p { font-size: 1.125rem; opacity: 0.9; max-width: 560px; margin: 1rem auto 0; font-weight: 300; }
+        .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.75rem; }
+
+        .events-section { background: var(--color-white); padding: var(--spacing-xl) 0; }
+        .events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+        @media (max-width: 768px) { .events-grid { grid-template-columns: 1fr; } }
+
+        .event-card {
+            border: 1px solid rgba(62,39,35,0.12);
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            transition: box-shadow var(--transition-base);
+        }
+        .event-card:hover { box-shadow: var(--shadow-md); }
+        .event-date-col {
+            background: var(--color-primary);
+            color: var(--color-cream);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem 1rem;
+            min-width: 80px;
+            text-align: center;
+        }
+        .event-month { font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; opacity: 0.7; }
+        .event-day { font-family: var(--font-display); font-size: 2rem; line-height: 1; color: var(--color-accent); }
+        .event-body { padding: var(--spacing-sm) var(--spacing-md); flex: 1; }
+        .event-type { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.25rem; }
+        .event-name { font-family: var(--font-display); font-size: 1.125rem; margin-bottom: 0.25rem; }
+        .event-details { font-size: 0.875rem; color: var(--color-secondary); margin-bottom: 0.75rem; }
+        .event-details span { display: inline-block; margin-right: 1rem; }
+        .event-tag { display: inline-block; font-size: 0.7rem; letter-spacing: 0.05em; padding: 0.2rem 0.6rem; border-radius: 2px; font-weight: 600; }
+        .tag-upcoming { background: rgba(184,148,30,0.15); color: var(--color-accent); }
+        .tag-tba { background: rgba(62,39,35,0.08); color: var(--color-secondary); }
+
+        .placeholder-notice {
+            background: var(--color-cream);
+            border-left: 3px solid var(--color-accent);
+            padding: var(--spacing-sm) var(--spacing-md);
+            border-radius: 0 4px 4px 0;
+            margin-bottom: var(--spacing-lg);
+            font-size: 0.875rem;
+            color: var(--color-secondary);
+        }
+        .placeholder-notice strong { color: var(--color-primary); }
+
+        .host-section { background: var(--color-cream); padding: var(--spacing-xl) 0; }
+        .host-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--spacing-md); margin-top: var(--spacing-lg); }
+        .host-card { background: white; padding: var(--spacing-md); border-radius: 4px; text-align: center; }
+        .host-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .host-card h4 { font-family: var(--font-display); font-size: 1.125rem; margin-bottom: 0.5rem; }
+        .host-card p { font-size: 0.875rem; color: var(--color-secondary); margin-bottom: var(--spacing-sm); }
+
+        .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.75rem; font-family: var(--font-body); font-size: 0.875rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; transition: all var(--transition-base); cursor: pointer; border: none; text-decoration: none; }
+        .btn-primary { background: var(--color-accent); color: white; }
+        .btn-primary:hover { background: var(--color-secondary); }
+        .btn-outline { background: transparent; border: 1.5px solid var(--color-primary); color: var(--color-primary); }
+        .btn-outline:hover { background: var(--color-primary); color: white; }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-mark">A</span>
+                <span class="logo-text">AKUA METHOD</span>
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="experiences.html" class="nav-link">Experiences</a>
+                <a href="sample-sets.html" class="nav-link">Sample Sets</a>
+                <a href="customization.html" class="nav-link">Customization</a>
+                <a href="events.html" class="nav-link active">Events</a>
+                <a href="story.html" class="nav-link">Story</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <button class="nav-cart" id="cart-button" aria-label="Shopping cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 2L7 6H3L6 18h12l3-12h-4l-2-4z"/>
+                    <circle cx="9" cy="21" r="1"/><circle cx="18" cy="21" r="1"/>
+                </svg>
+                <span class="cart-count" id="cart-count">0</span>
+            </button>
+        </div>
+    </nav>
+
+    <section class="page-hero">
+        <div class="container">
+            <p class="section-label" style="color:var(--color-accent);">Find Us In Person</p>
+            <h1>Events & Pop-Ups</h1>
+            <p>From New Orleans to New York to Accra — catch Akua Method at markets, workshops, and special appearances.</p>
+        </div>
+    </section>
+
+    <section class="events-section">
+        <div class="container">
+            <div class="placeholder-notice">
+                <strong>Note to owner:</strong> Replace the event cards below with your real upcoming dates. Each card is easy to duplicate — just update the month, day, name, location, and time fields.
+            </div>
+
+            <p class="section-label">Upcoming</p>
+            <h2 style="font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.5rem);margin-bottom:var(--spacing-md);">2026 Events</h2>
+
+            <div class="events-grid">
+
+                <div class="event-card">
+                    <div class="event-date-col">
+                        <span class="event-month">JUL</span>
+                        <span class="event-day">12</span>
+                    </div>
+                    <div class="event-body">
+                        <p class="event-type">Pop-Up Market</p>
+                        <h3 class="event-name">Frenchmen Art Market</h3>
+                        <div class="event-details">
+                            <span>📍 New Orleans, LA</span>
+                            <span>🕖 6pm – 10pm</span>
+                        </div>
+                        <span class="event-tag tag-upcoming">Upcoming</span>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date-col">
+                        <span class="event-month">JUL</span>
+                        <span class="event-day">26</span>
+                    </div>
+                    <div class="event-body">
+                        <p class="event-type">Scent Workshop</p>
+                        <h3 class="event-name">Girl's Day Out — Summer Edition</h3>
+                        <div class="event-details">
+                            <span>📍 Mid City, New Orleans</span>
+                            <span>🕑 2pm – 4pm</span>
+                        </div>
+                        <span class="event-tag tag-upcoming">Upcoming</span>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date-col">
+                        <span class="event-month">AUG</span>
+                        <span class="event-day">09</span>
+                    </div>
+                    <div class="event-body">
+                        <p class="event-type">Vendor Market</p>
+                        <h3 class="event-name">Black-Owned Brands Showcase</h3>
+                        <div class="event-details">
+                            <span>📍 Atlanta, GA</span>
+                            <span>🕐 12pm – 6pm</span>
+                        </div>
+                        <span class="event-tag tag-upcoming">Upcoming</span>
+                    </div>
+                </div>
+
+                <div class="event-card">
+                    <div class="event-date-col">
+                        <span class="event-month">TBD</span>
+                        <span class="event-day" style="font-size:1.25rem;padding:0.25rem 0;">—</span>
+                    </div>
+                    <div class="event-body">
+                        <p class="event-type">Private Event</p>
+                        <h3 class="event-name">New York City Pop-Up</h3>
+                        <div class="event-details">
+                            <span>📍 New York, NY</span>
+                            <span>Date TBA</span>
+                        </div>
+                        <span class="event-tag tag-tba">Date TBA</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="host-section">
+        <div class="container">
+            <p class="section-label" style="text-align:center;">Want Us At Your Event?</p>
+            <h2 style="text-align:center;font-family:var(--font-display);font-size:clamp(1.75rem,3vw,2.5rem);">Vendor & Collaboration Inquiries</h2>
+            <div class="host-grid">
+                <div class="host-card">
+                    <div class="host-icon">🏪</div>
+                    <h4>Market Vendor</h4>
+                    <p>Invite Akua Method to your pop-up market, bazaar, or vendor fair. We bring the scents, samples, and good energy.</p>
+                    <a href="contact.html?subject=vendor-inquiry" class="btn btn-outline">Inquire</a>
+                </div>
+                <div class="host-card">
+                    <div class="host-icon">🎉</div>
+                    <h4>Private Events</h4>
+                    <p>Birthdays, bridal showers, corporate events — book a private scent bar or workshop for your gathering.</p>
+                    <a href="contact.html?subject=private-event" class="btn btn-outline">Book</a>
+                </div>
+                <div class="host-card">
+                    <div class="host-icon">🤝</div>
+                    <h4>Brand Collaborations</h4>
+                    <p>Looking to co-create or partner on a scent experience? Let's talk — we love intentional brand partnerships.</p>
+                    <a href="contact.html?subject=collaboration" class="btn btn-outline">Connect</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <aside class="cart-sidebar" id="cart-sidebar" aria-hidden="true">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button class="cart-close" id="cart-close" aria-label="Close cart">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p class="cart-empty">Your cart is empty</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total"><span>Subtotal:</span><span id="cart-total">$0.00</span></div>
+            <p class="cart-note">Shipping & handling calculated at checkout</p>
+            <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+        </div>
+    </aside>
+
+    <footer style="background:var(--color-primary);color:var(--color-cream);padding:var(--spacing-lg) 0 var(--spacing-md);">
+        <div class="container" style="text-align:center;">
+            <a href="index.html" style="font-family:var(--font-display);font-size:1.25rem;letter-spacing:3px;color:var(--color-cream);">AKUA METHOD</a>
+            <p style="margin-top:1rem;font-size:0.875rem;opacity:0.6;">© 2026 Akua Method. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
